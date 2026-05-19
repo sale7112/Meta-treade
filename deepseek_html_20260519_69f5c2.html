@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>MT5 Invest | استثمار</title>
+    
+    <!-- Font Awesome 6 (أيقونات نضيفة) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Open Graph للواتساب والماسنجر – يظهر النص الكامل -->
+    <meta property="og:title" content="MT5 Investment | منصة استثمار رقمي">
+    <meta property="og:description" content="استثمر في منصة MT5 المتخصصة في العملات الرقمية. نظام X3 في التداول. مثال عملي: استثمر 1050 جنيه تحصل على 3000 جنيه خلال ساعتين. مع ضمانات كاملة (سجل تجاري، بطاقة شخصية، جواز سفر).">
+    <meta property="og:image" content="https://i.imgur.com/a1b2c3d.jpg">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourdomain.com">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
+            padding: 2rem 1rem;
+            direction: rtl;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* بطاقة رئيسية أنيقة */
+        .card {
+            background: #ffffff;
+            border-radius: 32px;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1), 0 0 0 1px rgba(0,0,0,0.02);
+            overflow: hidden;
+            transition: transform 0.2s ease;
+        }
+
+        /* هيدر أنيق */
+        .card-header {
+            padding: 2rem 2rem 1.5rem 2rem;
+            background: linear-gradient(135deg, #0a2540 0%, #1f4e6c 100%);
+            color: white;
+        }
+
+        .card-header h1 {
+            font-size: 1.9rem;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .card-header h1 i {
+            font-size: 2rem;
+            color: #ffd966;
+        }
+
+        .card-header .sub {
+            font-size: 0.9rem;
+            opacity: 0.85;
+        }
+
+        /* الجسم */
+        .card-body {
+            padding: 2rem;
+        }
+
+        /* صندوق النص الاحترافي */
+        .investment-box {
+            background: #f9fafb;
+            border-radius: 24px;
+            padding: 1.8rem;
+            border: 1px solid #eef2f6;
+            margin-bottom: 2rem;
+        }
+
+        .investment-box p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+            color: #1e293b;
+        }
+
+        .guarantee-list {
+            list-style: none;
+            margin-top: 1.2rem;
+        }
+
+        .guarantee-list li {
+            margin: 0.8rem 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #0f3b2c;
+        }
+
+        .guarantee-list li i {
+            color: #10b981;
+            font-size: 1.2rem;
+            width: 24px;
+        }
+
+        /* الباقات – شكل عصري جداً */
+        .packages {
+            display: flex;
+            gap: 1.8rem;
+            margin: 1.8rem 0;
+            flex-wrap: wrap;
+        }
+
+        .package-card {
+            flex: 1;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 28px;
+            padding: 1.8rem;
+            transition: all 0.25s;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .package-card:hover {
+            border-color: #2c7da0;
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -12px rgba(0,0,0,0.1);
+        }
+
+        .package-card.selected {
+            border-color: #2c7da0;
+            background: #f5faff;
+            box-shadow: 0 10px 20px -8px rgba(44,125,160,0.2);
+        }
+
+        .package-icon {
+            font-size: 2.2rem;
+            color: #2c7da0;
+            margin-bottom: 1rem;
+        }
+
+        .package-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .package-return {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #0a2540;
+            margin: 0.75rem 0;
+        }
+
+        .package-meta {
+            font-size: 0.85rem;
+            color: #5c6f87;
+            border-top: 1px solid #eef2f6;
+            margin-top: 1rem;
+            padding-top: 1rem;
+        }
+
+        /* الأزرار – أنيقة */
+        .btn {
+            background: #2c7da0;
+            border: none;
+            padding: 1rem 1.5rem;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 1rem;
+            color: white;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid #cbd5e1;
+            color: #2c7da0;
+        }
+
+        .btn-outline:hover {
+            background: #f1f5f9;
+            transform: none;
+        }
+
+        .btn:disabled {
+            background: #b9d0de;
+            cursor: not-allowed;
+        }
+
+        .btn-primary:hover {
+            background: #1f5e7a;
+            transform: translateY(-2px);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        hr {
+            margin: 1.5rem 0;
+            border: none;
+            border-top: 1px solid #eef2f6;
+        }
+
+        .footer-note {
+            font-size: 0.7rem;
+            text-align: center;
+            color: #94a3b8;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 700px) {
+            .card-body {
+                padding: 1.25rem;
+            }
+            .packages {
+                flex-direction: column;
+            }
+            .card-header h1 {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h1>
+                <i class="fas fa-chart-line"></i> 
+                MT5 Investment
+            </h1>
+            <div class="sub">منصة استثمار في العملات الرقمية | نظام X3 للتداول</div>
+        </div>
+        <div class="card-body">
+            <!-- النص الكامل -->
+            <div id="fullDetailsBlock">
+                <div class="investment-box">
+                    <p><i class="fas fa-info-circle" style="color:#2c7da0; margin-left: 8px;"></i> بص حضرتك، ده استثمار شغل جانبي بيزوّد دخلك، والفكرة ببساطة إني بستثمر فلوسك في منصّة <strong>MT5</strong> المتخصصة في العملات الرقمية. عند الإيداع، الفلوس بتتحول من الجنيه المصري للدولار لأن المنصة أجنبية، وبعد كده بحوّل المبلغ لعملة البيتكوين وأستثمره في تعدين البيتكوين والإيثريوم.</p>
+                    <p>بستخدم <strong>نظام X3</strong> في التداول، وده معناه إن رأس المال بيتضاعف 3 مرات من خلال البورصة. بالنسبة للأرباح، حضرتك بتاخد الضعف (1X) من المبلغ اللي استثمرته، وباقي الأرباح بتتقسم على نسبتي والضرائب الخاصة بتحويل العملة في البورصة الأجنبية.</p>
+                    <p><strong>مثال عملي:</strong> لو استثمرت 1050 جنيه، بيصلك ربح 3000 جنيه خلال ساعتين، وطبعًا قبل أي تحويل بتاخد ضماناتك الكاملة، وهي:</p>
+                    <ul class="guarantee-list">
+                        <li><i class="fas fa-check-circle"></i> صورة السجل التجاري مختوم ومعتمد</li>
+                        <li><i class="fas fa-id-card"></i> بطاقتي الشخصية والمعلومات الكاملة</li>
+                        <li><i class="fas fa-passport"></i> صورة جواز السفر</li>
+                    </ul>
+                    <p>بالتوفيق وإن شاء الله تكون معرفه خير وفتحه خير علي حضرتك</p>
+                </div>
+                <button id="agreeBtn" class="btn btn-primary"><i class="fas fa-thumbs-up"></i> أوافق على الشروط وأبدأ</button>
+            </div>
+
+            <!-- قسم اختيار الباقة (يظهر بعد الضغط على أوافق) -->
+            <div id="packagesBlock" class="hidden">
+                <button id="showDetailsAgain" class="btn btn-outline" style="margin-bottom: 1rem;"><i class="fas fa-arrow-right"></i> عرض التفاصيل مرة أخرى</button>
+                <hr>
+                <h3 style="font-weight: 500; margin-bottom: 1rem;">اختر الباقة المناسبة لك</h3>
+                <div class="packages" id="packagesContainer">
+                    <div class="package-card" data-amount="1050">
+                        <div class="package-icon"><i class="fas fa-crown"></i></div>
+                        <div class="package-title">باقة 1050 جنيه</div>
+                        <div class="package-return">3000 جنيه</div>
+                        <div class="package-meta"><i class="fas fa-clock"></i> خلال ساعتين • <i class="fas fa-calendar-alt"></i> اشتراك كل يومين</div>
+                    </div>
+                    <div class="package-card" data-amount="800">
+                        <div class="package-icon"><i class="fas fa-bolt"></i></div>
+                        <div class="package-title">باقة 800 جنيه</div>
+                        <div class="package-return">2080 جنيه</div>
+                        <div class="package-meta"><i class="fas fa-clock"></i> خلال ساعتين • <i class="fas fa-calendar-week"></i> اشتراك أسبوعي</div>
+                    </div>
+                </div>
+                <button id="confirmWhatsappBtn" class="btn btn-primary" disabled><i class="fab fa-whatsapp"></i> اختر باقة أولاً</button>
+                <div class="footer-note">سيتم تحويلك إلى واتساب لتأكيد الاشتراك</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const fullBlock = document.getElementById('fullDetailsBlock');
+    const packagesBlock = document.getElementById('packagesBlock');
+    const agreeMain = document.getElementById('agreeBtn');
+    const showDetailsAgain = document.getElementById('showDetailsAgain');
+    const packagesContainer = document.getElementById('packagesContainer');
+    const confirmBtn = document.getElementById('confirmWhatsappBtn');
+
+    let selectedAmount = null;
+
+    agreeMain.addEventListener('click', () => {
+        fullBlock.classList.add('hidden');
+        packagesBlock.classList.remove('hidden');
+    });
+
+    showDetailsAgain.addEventListener('click', () => {
+        fullBlock.classList.remove('hidden');
+        fullBlock.scrollIntoView({ behavior: 'smooth' });
+    });
+
+    const packageCards = document.querySelectorAll('.package-card');
+    packageCards.forEach(card => {
+        card.addEventListener('click', () => {
+            packageCards.forEach(c => c.classList.remove('selected'));
+            card.classList.add('selected');
+            selectedAmount = card.getAttribute('data-amount');
+            confirmBtn.disabled = false;
+            confirmBtn.innerHTML = `<i class="fab fa-whatsapp"></i> ابدأ استثمار ${selectedAmount} جنيه عبر واتساب`;
+        });
+    });
+
+    confirmBtn.addEventListener('click', () => {
+        if (!selectedAmount) {
+            alert('يرجى اختيار الباقة أولاً');
+            return;
+        }
+        const waMessage = `اشتراك باقه استثمار ${selectedAmount}`;
+        const phoneNumber = '201117097868'; // تم تحديث الرقم
+        const waUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(waMessage)}`;
+        window.open(waUrl, '_blank');
+    });
+</script>
+</body>
+</html>
